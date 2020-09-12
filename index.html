@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Work+Sans: 300">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+
+
+<p id="count"></p>
+<p id="message">Be patient!</p>
+
+<script>
+  document.getElementById("message").style.visibility = "hidden";
+var countDownDate = new Date("September 17, 2020 08:00:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("count").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  document.getElementById("message").style.visibility = "visible";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("count").innerHTML = "";
+
+    var button = document.createElement("button");
+    button.onclick = function(){ window.location.href = "page.html"}
+    var text = document.createTextNode("Enter");
+    button.appendChild(text);
+    document.getElementById("count").appendChild(button);
+  }
+}, 1000);
+</script>
+
+
+</body>
+</html>
