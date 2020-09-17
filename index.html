@@ -17,7 +17,7 @@
 
 
   <p id="count"></p>
-  <p id="message">Recent events and personal tastes can have lots of impact.
+  <p id="message">Less Than 12 Hours!
   </p>
 
   <script>
@@ -40,12 +40,13 @@
       document.getElementById("message").style.visibility = "visible";
 
       if (distance < 0) {
+        document.getElementById("message").style.visibility = "hidden";
         clearInterval(x);
         document.getElementById("count").innerHTML = "";
 
         var button = document.createElement("button");
         button.onclick = function () { window.location.href = "page.html" }
-        var text = document.createTextNode("Hmmm, inspecting JavaScript code I see. This isn't the secret message, though.");
+        var text = document.createTextNode("Gimme Gift!");
         button.appendChild(text);
         document.getElementById("count").appendChild(button);
       }
